@@ -1,0 +1,83 @@
+.from{
+    margin-top: 0%;
+    margin-bottom: 30%;
+}
+
+.input-box{
+    margin: 20px;
+    color: #D4D3D3;
+font-family: Inter;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 25px; /* 125% */
+border-bottom: 2px solid #D4D3D3;
+position: relative;
+
+}
+.input-box input{
+background: transparent;
+border: none;
+outline: none;
+
+
+
+}
+.btn {
+    width: 252px;
+    height: 69px;
+    flex-shrink: 0;
+border-radius: 15px;
+box-shadow: 0px 4px 4px 5px #D4D3D3;
+background: #61B846;
+color: white;
+font-family: Inter;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 25px; /* 83.333% */
+margin: 20px;
+}
+
+.register-link{
+    margin: 10px;
+}
+.remember-forget{
+    
+    align-content:space-between;
+
+}
+
+  
+
+#getStartedButton{
+    width: 252px;
+    height: 69px;
+    flex-shrink: 0;
+border-radius: 15px;
+box-shadow: 0px 4px 4px 5px #D4D3D3;
+background: #61B846;
+color:white;
+font-family: Inter;
+font-size: 30px;
+font-style: normal;
+font-weight: 700;
+line-height: 25px; /* 83.333% */
+
+
+}
+
+.wrapper{
+    height: 110%;
+    width: 40%;
+    margin-top: 5%;
+}
+.warp{
+    height: 110%;
+    width: 40%;
+    
+}
+.frum{
+    margin-top: 10%;
+    margin-bottom: 15%;
+}
