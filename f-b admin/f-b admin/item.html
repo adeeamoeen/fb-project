@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home-Saylani Online Discount Store</title>
+    <link rel="stylesheet" href="item.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">'
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+
+<body>
+    <div align="center">
+    <div class="first-container">
+       
+        <img src="img/profile.png" alt="" id="profile-img" />
+        <h5
+          style="
+        color: #61b846;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 20px;
+            margin-top: 1px;
+            margin-left: 5%;
+          "
+        >
+          Mam:Adeea 
+        </h5>
+        <h4
+          style="
+          
+            color: #024f9d;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 18px;
+           margin-left:-10%;
+           margin-top: 3.5%;"
+           
+        >
+          Admin
+        </h4>
+        <a href="adminO.html" class="fa-receipt"><i class="fa-solid fa-receipt fa-2x"></i></a>
+      </div>
+    <div class="second-container">
+        <h4 class="add-New">
+            Add New Item   </h4>
+          
+        <input type="file" class="file" id="image" accept="image/png, image/jpeg" />
+        </br>
+        <span id="filetext"></span>
+        <input type="text" placeholder="Item Name"  id="item-name" />
+        </br>
+        <select id="dropdown">
+            <option selected style="color: gray">Select Category</option>
+            <option value="1" style="color: gray">juice</option>
+            <option value="1" style="color: gray">pules</option>
+            <option value="1" style="color: gray">Meat</option>
+        </select>
+    </div>
+    <input type="text" class="message" placeholder="Describe this Item" id="description" />
+    <div class="unit">
+        <p class="unit-p">Unit Name:</p>
+        <input type="number" placeholder="Pcs / Kg / dozen" class="unit-i" id="unit-name" />
+    </div>
+    <div class="unit" id="unit-price">
+        <p class="unit-p">Unit Price:</p>
+        <input type="number" placeholder="$3.22" class="unit-i"  id="price" />
+    </div>
+    <button class="btn first-button" onclick=" addProduct()">
+        <p class="button-para">Add Product</p>
+    </button>
+    </div>
+
+    <div class="footer">
+        <a href="admin.html"> <i class="fa-solid fa-house fa-2x icon"></i></a>
+        <a href="item.html"> <i class="fa-solid fa-add fa-2x icon"></i></a>
+        <a href="adminS.html">  <i class="fa-solid fa-user fa-2x icon"></i></a>
+    </div>
+</div>
+
+    
+    
+    <script>
+         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    import {  getDatabase, set, ref } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged,}from"https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+    import { getStorage, ref }from "https://www.gstatic.com/firebasejs/10.1.0/firebase-storage.js"
+        const firebaseConfig = {
+            apiKey: "AIzaSyBhNk1Ap_bBNFXvIXYLnBQsxTfI0vS3bBE",
+            authDomain: "smit-b9-5571c.firebaseapp.com",
+            databaseURL: "https://smit-b9-5571c-default-rtdb.firebaseio.com",
+            projectId: "smit-b9-5571c",
+            storageBucket: "smit-b9-5571c.appspot.com",
+            messagingSenderId: "567836920600",
+            appId: "1:567836920600:web:650a753fc9a1d2aca26c6d",
+            measurementId: "G-NMXLYR92VE"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const storage = getStorage(app);
+        const auth = getAuth(app);
+
+       
+    </script>
+
+
+<script src="https://www.gstatic.com/firebasejs8.7.0/firebase-storage.js"></script>
+<script src="product.js"></script>
+
+</body>
+
+</html>
