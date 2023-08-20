@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  
+</head>
+<body>
+    <div class="container_cart_body">
+        <div class="page_title">
+            <div>
+                <p class="blue_logo">Shopping</p>
+                <p class="green_logo">Cart</p>
+            </div>
+            <a href="home.html"><i class="fa-solid fa-trash fa-2x green"></i></a>
+        </div>
+        <div class="cart_item">
+
+            <div class="item">
+              <img src="img/fruit.png" alt="item_img" class="img_sizing" >
+              <div class="counter_item">
+                  <p>
+                      FRUITS
+                  </p>
+                  <div class="counter_btn">
+                   
+                    <input
+                      type="number"
+                      placeholder="1"
+                      class="counter"
+                      style="margin-left: 30px;"
+                      id="price"
+                    />
+                  </div>
+                 
+              </div>
+              <p class="price">Rs:700</p>
+            
+      
+            </div>
+      
+           
+      
+          </div>
+          <div class="cart_item">
+
+            <div class="item">
+              <img src="img/spieces.jpg" alt="item_img" class="img_sizing" >
+              <div class="counter_item">
+                  <p>
+                      SPIECES
+                  </p>
+                  <div class="counter_btn">
+                   
+                    <input
+                      type="number"
+                      placeholder="1"
+                      class="counter"
+                      style="margin-left: 30px;"
+                      id="price"
+                    />
+                  </div>
+      
+              </div>
+      
+              <p class="price">Rs:200</p>
+      
+            </div>
+        </div>
+           
+            
+          <div class="cart_item">
+
+            <div class="item">
+              <img src="img/juice.jpg" alt="item_img" class="img_sizing" >
+              <div class="counter_item">
+                  <p>
+                      JUICE
+                  </p>
+                 
+                  <div class="counter_btn">
+                   
+                    <input
+                      type="number"
+                      placeholder="1"
+                      class="counter"
+                      style="margin-left: 30px;"
+                      id="price"
+                    />
+                  </div>
+      
+              </div>
+      
+              <p class="price">Rs:600</p>
+      
+            </div>
+            </div>
+            <div class="cart_item">
+            <div class="item">
+                <img src="img/pules.jpg" alt="item_img" class="img_sizing" >
+                <div class="counter_item">
+                    <p>
+                       PULES 
+                    </p>
+                   
+                    <div class="counter_btn">
+                     
+                      <input
+                        type="number"
+                        placeholder="1"
+                        class="counter"
+                        style="margin-left: 30px;"
+                        id="price"
+                      />
+                    </div>
+        
+                </div>
+        
+                <p class="price">Rs:300</p>
+        
+              </div>
+        </div>
+        <p style="width: 80%; height: 0px; box-shadow: 2px 4px 4px #807d7d; border: 0.50px #BFBCBC solid ;margin-left: 10% ; margin-right: 10%;"></p>
+        <div class="item">
+            
+           
+                <div class="counter_item">
+
+
+                    
+         
+                    <p style="font-size: larger; font-weight: bold; justify-items: left; margin-left: 100%;" >
+                        Total
+                    </p>
+                   
+                </div>
+               
+        
+                <p class="price_green" style="margin-left: 125%;"> Rs:1800</p>
+           
+      
+            </div>
+       
+            
+<div class="form_cart">
+<input type="text" class="text_box" placeholder="Full Name"/>
+<input type="email"  class="text_box"placeholder="Email"/>
+<input type="tel" class="text_box" placeholder="Phone Number"/>
+<input type="text" class="text_box" placeholder="Shipping Address"/>
+</div>
+<button class="order">Place Order</button>
+<div class="footer">
+    <a href="Home.html"> <i class="fa-solid fa-house fa-2x icon"></i></a>  
+    <a href="Cart.html">   <i class="fa-solid fa-cart-shopping fa-2x icon"></i></a>
+    <a href="setting.html">  <i class="fa-solid fa-user fa-2x icon"></i></a>
+     </div>
+
+</div>
+
+
+   
+    
+   <script>// Assuming you have already imported and initialized Firebase
+
+    // Get the quantity display element and the increase/decrease buttons
+    const quantityDisplay = document.getElementById('quantity_display');
+    const increaseBtn = document.getElementById('increase_btn');
+    const decreaseBtn = document.getElementById('decrease_btn');
+    
+    // Initial quantity value
+    let quantity = 1;
+    
+    // Update the quantity display with the initial value
+    quantityDisplay.textContent = quantity;
+    
+    // Event listener for the increase button
+    increaseBtn.addEventListener('click', () => {
+        quantity++;
+        quantityDisplay.textContent = quantity;
+    });
+    
+    // Event listener for the decrease button
+    decreaseBtn.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            quantityDisplay.textContent = quantity;
+        }
+    });
+    </script>
+</body>
+</html>

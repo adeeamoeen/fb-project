@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>sign in</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div align="center">
+    <div class="frum">
+      <div style="color: #61B846; font-size: 35px; font-family: Inter; font-weight: 700;  word-wrap: break-word ; ">
+        SAYLANI
+        WELFARE</div>
+      <div
+        style="color: #024F9D; font-size: 20px; font-family: Inter; font-weight: 600; line-height: 25px; word-wrap: break-word;">
+        ONLINE DISCOUNT STORE</div>
+    </div>
+
+    <div class="warp">
+
+      <form action="#">
+
+
+
+
+
+        <div class="input-box">
+          <input type="text" placeholder="Email" id="email" />
+          <i class="material-icons">mail</i>
+        </div>
+        <div class="input-box">
+          <input type="password" placeholder="password" id="password">
+          <i class="fa fa-lock"></i>
+        </div>
+        <div class="remember-forget" style="left:0%;">
+          <p style="color: #024F9D;font-size: 15px;font-weight: 700;
+        line-height: 25px;">Forget Password?</p>
+        </div>
+        
+        <div class="register-link">
+          <p style="color: #024F9D;font-size: 15px;font-weight: 700;
+        line-height: 25px;">don't have an account ?<a href="signup.html">Register</a></p>
+        </div>
+      </form>
+      <button class="btn" id="signin" style="display: block" onclick="signin()">
+        <p class="button-para"> Sign In </p>
+      </button>
+    </div>
+  </div>
+
+  <script src="./firebase.cong.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+  <script>
+    // import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
+    // import {  getDatabase, set, ref,update } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
+    // import { getAuth, signInWithEmailAndPassword, onAuthStateChanged,}from"https://www.gstatic.com/firebasejs/10.1.0/firebase-auth.js";
+
+
+    // const firebaseConfig = {
+    //   apiKey: "AIzaSyBhNk1Ap_bBNFXvIXYLnBQsxTfI0vS3bBE",
+    //   authDomain: "smit-b9-5571c.firebaseapp.com",
+    //   databaseURL: "https://smit-b9-5571c-default-rtdb.firebaseio.com",
+    //   projectId: "smit-b9-5571c",
+    //   storageBucket: "smit-b9-5571c.appspot.com",
+    //   messagingSenderId: "567836920600",
+    //   appId: "1:567836920600:web:650a753fc9a1d2aca26c6d",
+    //   measurementId: "G-NMXLYR92VE"
+    // };   
+
+
+    const app = firebase.initializeApp(firebaseConfig);
+    console.log(app)
+
+    const signin = () => {
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          let user = userCredential.user;
+          console.log(user)
+          const dbRef = firebase.database().ref();
+          dbRef.child("users").child(user.uid).get().then((snapshot) => {
+            if (snapshot.exists()) {
+              const userData = snapshot.val()
+              if (userData.role === 'Admin') {
+                const user = { email: email };
+                sessionStorage.setItem('user', JSON.stringify(user));
+                alert('User logged in successfully.')
+              }
+              else {
+                const user = { email: email };
+                sessionStorage.setItem('user', JSON.stringify(user));
+                console.log('Admin')
+              }
+            } else {
+              alert("No data available");
+            }
+          }).catch((error) => {
+            console.error(error);
+          });
+        })
+        .catch((error) => {
+          let errorCode = error.code;
+          let errorMessage = error.message;
+          alert(errorCode + ': ' + errorMessage)
+        });
+
+    }
+
+
+
+
+  </script>
+</body>
+
+</html>
